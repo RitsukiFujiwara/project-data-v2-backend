@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//ログインAPI
+Route::get('/login', 'Login\LoginController@login');
+//言語取得API
+Route::get('/program', 'Program\ProgramController@search');
