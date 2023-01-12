@@ -19,6 +19,7 @@ class CreateFrameworksTable extends Migration
             $table->smallInteger('status')->comment('ステータス');
             $table->string('name', 255)->comment('名前');
             $table->string('icon', 255)->comment('アイコン');
+            $table->string('version', 255)->comment('バージョン');
             $table->dateTime('created_at');
             $table->string('created_user', 255);
             $table->dateTime('updated_at');

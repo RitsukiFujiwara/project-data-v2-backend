@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Auth extends Model
+class Profile extends Model
 {
     /**
      * 認証　に関連するユーザーレコードを取得
