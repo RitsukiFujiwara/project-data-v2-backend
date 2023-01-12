@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Program;
+namespace App\Http\Controllers\Database;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Program;
-use Illuminate\Support\Facades\Validator;
-use App\Exceptions\ValidationErrorException;
-// use Exception;
+use App\Database;
 
-class ProgramController extends Controller
+
+class DatabaseController extends Controller
 {
     /**
-     * 言語検索処理
+     * データベース検索処理
      *
      * @param  Request  $request
      * @return Response
@@ -28,7 +26,7 @@ class ProgramController extends Controller
         return $this->commonApi($request, $rules, 'search');
     }
     /**
-     * 言語登録処理
+     * データベース登録処理
      *
      * @param  Request  $request
      */
@@ -38,7 +36,7 @@ class ProgramController extends Controller
         return $this->commonApi($request, $rules, 'register');
     }
     /**
-     * 言語更新処理
+     * データベース更新処理
      *
      * @param  Request  $request
      */
@@ -59,13 +57,13 @@ class ProgramController extends Controller
         //     //     throw new ValidationErrorException($validator->errors()->messages());
         // }
 
-        $program = new Program;
+        $database = new Database;
         if ($requestType === 'search') {
-            $response = $program->searchProgram($request);
+            $response = $database->searchDatabase($request);
         } elseif ($requestType === 'register') {
-            $response = $program->registerProgram($request);
+            $response = $database->registerDatabase($request);
         } elseif ($requestType === 'update') {
-            $response = $program->updateProgram($request);
+            $response = $database->updateDatabase($request);
         }
         return $response;
     }

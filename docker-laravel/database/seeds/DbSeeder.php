@@ -4,8 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-
-class ProgramSeeder extends Seeder
+class DbSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,18 +13,18 @@ class ProgramSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('programs')->insert([
+        DB::table('databases')->insert([
             'status' => 1,
-            'name' => "program1",
+            'name' => 'DB1',
             'icon' => Str::random(10),
             'created_at' => now(),
             'created_user' => 'testUser',
             'updated_at' => now(),
             'updated_user' => 'testUser'
         ]);
-        DB::table('programs')->insert([
+        DB::table('databases')->insert([
             'status' => 2,
-            'name' => "program2",
+            'name' => "DB2",
             'icon' => Str::random(10),
             'created_at' => now(),
             'created_user' => 'testUser',

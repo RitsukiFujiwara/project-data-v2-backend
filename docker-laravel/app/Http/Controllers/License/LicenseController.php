@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Program;
+namespace App\Http\Controllers\License;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Program;
-use Illuminate\Support\Facades\Validator;
-use App\Exceptions\ValidationErrorException;
-// use Exception;
+use App\License;
 
-class ProgramController extends Controller
+class LicenseController extends Controller
 {
     /**
-     * 言語検索処理
+     * 資格検索処理
      *
      * @param  Request  $request
      * @return Response
@@ -23,12 +20,11 @@ class ProgramController extends Controller
         $rules = [
             'status' => 'integer|min:1',
             'name' => 'string',
-            'icon' => 'string',
         ];
         return $this->commonApi($request, $rules, 'search');
     }
     /**
-     * 言語登録処理
+     * 資格登録処理
      *
      * @param  Request  $request
      */
@@ -38,7 +34,7 @@ class ProgramController extends Controller
         return $this->commonApi($request, $rules, 'register');
     }
     /**
-     * 言語更新処理
+     * 資格更新処理
      *
      * @param  Request  $request
      */
@@ -59,13 +55,13 @@ class ProgramController extends Controller
         //     //     throw new ValidationErrorException($validator->errors()->messages());
         // }
 
-        $program = new Program;
+        $license = new License;
         if ($requestType === 'search') {
-            $response = $program->searchProgram($request);
+            $response = $license->searchLicense($request);
         } elseif ($requestType === 'register') {
-            $response = $program->registerProgram($request);
+            $response = $license->registerLicense($request);
         } elseif ($requestType === 'update') {
-            $response = $program->updateProgram($request);
+            $response = $license->updateLicense($request);
         }
         return $response;
     }

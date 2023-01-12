@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAuthsTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,18 @@ class CreateAuthsTable extends Migration
      */
     public function up()
     {
-        Schema::create('auths', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->comment('ユーザーID');
             $table->smallInteger('status')->comment('ステータス');
-            $table->string('email', 255)->comment('メールアドレス');
-            $table->string('password', 255)->comment('パスワード');
+            $table->string('name', 255)->comment('名称');
+            $table->string('name_kana', 255)->comment('名称（カナ）');
+            $table->smallInteger('gender')->comment('性別');
+            $table->integer('birthdate')->comment('生年月日');
+            $table->integer('zipcode')->comment('郵便番号');
+            $table->string('address', 255)->comment('住所');
+            $table->string('license', 255)->comment('保有資格');
+            $table->string('url', 255)->comment('URL');
             $table->dateTime('created_at');
             $table->string('created_user', 255);
             $table->dateTime('updated_at');
@@ -33,6 +39,6 @@ class CreateAuthsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auths');
+        Schema::dropIfExists('profiles');
     }
 }
